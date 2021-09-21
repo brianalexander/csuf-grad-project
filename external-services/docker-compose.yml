@@ -1,0 +1,53 @@
+version: "3"
+services:
+  redis:
+    image: redis:6.0.9-alpine
+    volumes:
+      - "./redis/redis.conf:/usr/local/etc/redis/redis.conf"
+    command: "redis-server /usr/local/etc/redis/redis.conf"
+    ports:
+      - "6379:6379"
+  redis-insight:
+    image: redislabs/redisinsight:latest
+    depends_on:
+      - redis
+    ports:
+      - 8001:8001
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.1
+    container_name: es01
+    environment:
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - cluster.initial_master_nodes=es01
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xmx1024m -Xmx1024m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+  kib01:
+    image: docker.elastic.co/kibana/kibana:7.10.1
+    depends_on:
+      - es01
+    container_name: kib01
+    ports:
+      - 5601:5601
+    environment:
+      ELASTICSEARCH_URL: http://es01:9200
+      ELASTICSEARCH_HOSTS: '["http://es01:9200"]'
+      ELASTICSEARCH_REQUESTTIMEOUT: 99000
+    networks:
+      - elastic
+volumes:
+  data01:
+    driver: local
+networks:
+  elastic:
+    driver: bridge

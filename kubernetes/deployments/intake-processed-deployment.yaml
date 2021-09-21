@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: intake-processed-deployment
+  labels:
+    app: intake-processed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: intake-processed
+  template:
+    metadata:
+      labels:
+        app: intake-processed
+    spec:
+      volumes:
+        - name: redis-volume
+          secret:
+            secretName: redis-secret
+      containers:
+        - name: intake-processed
+          image: brianalexander/intake-processed
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          command: ["python"]
+          args: ["./intake_processed.py"]
+          volumeMounts:
+            - name: redis-volume
+              mountPath: /etc/secrets/redis

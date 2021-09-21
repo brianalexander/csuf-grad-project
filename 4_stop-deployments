@@ -1,0 +1,1 @@
+kubectl delete deployments.apps browser-backend-api-deployment item-provider-deployment elasticsearch-api-deployment item-classifier-deployment intake-processed-deployment webhook-deployment item-moderated-deployment

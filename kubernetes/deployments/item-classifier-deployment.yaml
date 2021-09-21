@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: item-classifier-deployment
+  labels:
+    app: item-classifier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: item-classifier
+  template:
+    metadata:
+      labels:
+        app: item-classifier
+    spec:
+      volumes:
+        - name: toxic-volume
+          hostPath:
+            path: "/home/brian/Documents/kubernetes/models"
+            type: Directory
+        - name: redis-volume
+          secret:
+            secretName: redis-secret
+      containers:
+        - name: item-classifier
+          image: brianalexander/item-classifier:latest
+          imagePullPolicy: IfNotPresent
+          # resources:
+          #   limits:
+          #     memory: "1Gi"
+          #     cpu: "500m"
+          command: ["python"]
+          args: ["./item_classifier.py"]
+          volumeMounts:
+            - name: redis-volume
+              mountPath: /etc/secrets/redis
+            - name: toxic-volume
+              mountPath: /models

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: browser-backend-api-deployment
+  labels:
+    app: browser-backend-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: browser-backend-api
+  template:
+    metadata:
+      labels:
+        app: browser-backend-api
+    spec:
+      volumes:
+        - name: redis-volume
+          secret:
+            secretName: redis-secret
+      containers:
+        - name: browser-backend-api
+          image: brianalexander/browser-backend-api
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          command: ["waitress-serve"]
+          args: ["--port=80", "--call", "browser_backend_api:create_app"]
+          volumeMounts:
+            - name: redis-volume
+              mountPath: /etc/secrets/redis

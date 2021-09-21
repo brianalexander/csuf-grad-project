@@ -1,0 +1,43 @@
+# POST http://localhost:9200/test/_update/aYbF6HgBCRtlqY5YrcqM
+# content-type: application/json
+
+# {
+#   "script": {
+#     "source": "for (item in params.tags) { ctx._source.tags.add(item); } if (params.flagged) { ctx._source.flaggedCount++; } ctx._source.moderatedCount++; ctx._source.moderatedBy.add(params.moderator);",
+#     "lang": "painless",
+#     "params": {
+#       "tags": ["blue", "red"],
+#       "moderator": ["moderatorName"],
+#       "flagged": true
+#     }
+#   }
+# }
+
+# POST http://localhost:9200/new_test/_doc/d4YK-HgBCRtlqY5YeMpd
+# content-type: application/json
+
+# {
+#   "text": "text",
+#   "embedding": [1,1,1,1,1,1,1,1],
+#   "scores": {
+#     "a":0.55,
+#     "b":0.55,
+#     "c":0.55
+#   },
+#   "bin": "high",
+#   "finished": false,
+#   "flagged": false,
+#   "moderatedCount": 0,
+#   "flaggedCount": 0,
+#   "moderatedBy": ["Bob"],
+#   "tags": ["Ross"]
+# }
+
+PUT http://localhost:8080/item/d4YK-HgBCRtlqY5YeMpd
+content-type: application/json
+
+{
+  "flagged": true,
+  "moderator": "billy",
+  "tags": ["this", "is", "bad"]
+}

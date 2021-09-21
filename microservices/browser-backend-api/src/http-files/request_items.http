@@ -1,0 +1,2 @@
+GET http://localhost/moderator/test_moderator/item
+# GET http://localhost:8080/moderator/test_moderator/item

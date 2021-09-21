@@ -1,0 +1,61 @@
+# Create Item
+# given data only
+# insert and create new id
+# return success/fail
+
+# Comment
+# id: keyword
+# moderatedCount: short
+# flaggedCount: short
+# flagged: boolean
+# finished: boolean
+# text: text
+# scores: { }
+# embedding: dense_vector
+# tags: [ keyword ]
+# bin: keyword
+# moderatedBy: [ keyword ]
+
+# POST http://localhost:9200/new_test/_doc/
+# content-type: application/json
+
+# {
+#   "text": "text",
+#   "embedding": [1,1,1,1,1,1,1,1],
+#   "scores": {
+#     "a":0.55,
+#     "b":0.55,
+#     "c":0.55
+#   },
+#   "bin": "high",
+#   "finished": false,
+#   "flagged": false,
+#   "moderatedCount": 0,
+#   "flaggedCount": 0,
+#   "moderatedBy": [],
+#   "tags": []
+# }
+
+POST http://localhost:5000/item
+content-type: application/json
+
+{
+  "text": "text",
+  "embedding": [1,1,1,1,1,1,1,1],
+  "scores": {
+    "a":0.55,
+    "b":0.55,
+    "c":0.55
+  },
+  "bin": "high",
+  "finished": false,
+  "flagged": false,
+  "moderatedCount": 0,
+  "flaggedCount": 0,
+  "moderatedBy": [],
+  "tags": []
+}
+
+
+
+

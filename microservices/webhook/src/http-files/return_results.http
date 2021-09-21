@@ -1,0 +1,13 @@
+POST http://localhost/result
+content-type: application/json
+
+{ 
+    "id": "BcV8MHkBReOgSTwxrni6",
+    "moderator": "test_moderator", 
+    "tags": ["tag1", "tag2"], 
+    "flagged": true 
+}
+
+
+
+

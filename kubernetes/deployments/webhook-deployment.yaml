@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webhook-deployment
+  labels:
+    app: webhook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webhook
+  template:
+    metadata:
+      labels:
+        app: webhook
+    spec:
+      volumes:
+        - name: redis-volume
+          secret:
+            secretName: redis-secret
+      containers:
+        - name: webhook
+          image: brianalexander/webhook
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          command: ["waitress-serve"]
+          args: ["--port=80", "--call", "webhook:create_app"]
+          volumeMounts:
+            - name: redis-volume
+              mountPath: /etc/secrets/redis

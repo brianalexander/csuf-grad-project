@@ -1,0 +1,7 @@
+kubectl apply -f kubernetes/deployments/browser-backend-api-deployment.yaml
+kubectl apply -f kubernetes/deployments/item-provider-deployment.yaml
+kubectl apply -f kubernetes/deployments/elasticsearch-api-deployment.yaml
+kubectl apply -f kubernetes/deployments/item-classifier-deployment.yaml
+kubectl apply -f kubernetes/deployments/intake-processed-deployment.yaml
+kubectl apply -f kubernetes/deployments/item-moderated-deployment.yaml
+kubectl apply -f kubernetes/deployments/webhook-deployment.yaml

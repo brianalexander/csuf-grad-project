@@ -1,0 +1,7 @@
+docker build -t brianalexander/browser-backend-api microservices/browser-backend-api/
+docker build -t brianalexander/elasticsearch-api microservices/elasticsearch-api/
+docker build -t brianalexander/intake-processed microservices/intake-processed/
+docker build -t brianalexander/item-classifier microservices/item-classifier/
+docker build -t brianalexander/item-moderated microservices/item-moderated/
+docker build -t brianalexander/item-provider microservices/item-provider/
+docker build -t brianalexander/webhook microservices/webhook/

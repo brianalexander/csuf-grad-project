@@ -1,0 +1,2 @@
+cd ~/Documents/kubernetes/external-services
+docker-compose up

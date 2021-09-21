@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+autopep8 = "==1.5.4"
+
+[packages]
+redis = "*"
+sentence-transformers = "*"
+torch = "*"
+transformers = "*"
+
+[requires]
+python_version = "3.9"

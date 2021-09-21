@@ -1,0 +1,121 @@
+POST http://localhost/webhook
+content-type: application/json
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/1",
+#   "text": "this", 
+#   "priority": "high"
+# }
+
+{ 
+  "client_id": "reddit", 
+  "return_url": "localhost/item/1",
+  "text": "There are tons of articles that could be written about nightmare tenants destroying a landlord's property, refusing to pay rent etc. but the media chooses only to focus on bad landlords.  A little balance would be nice.", 
+  "priority": "high"
+}
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/2",
+#   "text": "At best, that was a bandaid proposal that will not begin until 2017. It does nothing in granting Denali's wolves immediate protection for this spring.", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/3",
+#   "text": "Well,  as long as no guns were injured,  then no biggie.", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/4",
+#   "text": "If they can't win series against their divisional opponents then their season is all but over.", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/5",
+#   "text": "I'm with Trump on NATO. Time for the US to get out of Europe.", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/6",
+#   "text": "Monica, Medicare is not free. In addition to Medicare tax withheld from every paycheck of my working life (paying into the system), every month the Medicare premium is deducted from my Social Security before it's direct deposited into my bank account, there is also a monthly premium for a Medicare Advantage plan that adds coverage for what traditional Medicare doesn't. Then there are copays for each doctor visit, ER visit copays, and various costs left over after the various insurance payments. Paul Ryan would deliver us senior citizens to the clutches of the insurance companies. God forbid!", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/7",
+#   "text": "He'll probably try to spin it that way.", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/8",
+#   "text": "So tell me after all this is done and the person who's making now what the new minimum will be, are they suppose to just be happy at what they're getting or do they now go to their employer and say, my job takes more skill or knowledge and now I deserve more money.  The answer is yes they do.  So now what does the employer do?  There is only so much money period if you're in the private sector.  To bad the government doesn't realize this.  When they need more money they just raise taxes or figure out a new fee.", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/9",
+#   "text": "Using his dad as an excuse, please.  The excuse is that he's a knucklehead.", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/10",
+#   "text": "Nice foreign policy platform. 400,000 Syrian deaths...of no importance or value to this piece of trash.", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/11",
+#   "text": "No matter how much you hated Obama and his politics he didn't run around hiring fools and saying moronic crap like Trump and Bush...", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/12",
+#   "text": "Carl Bernstein is known as a malicious left-wing schmuck.", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/13",
+#   "text": "Pointless comparing those two traitors Baird and McCallum. O Canada!", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/14",
+#   "text": "Gaga is just another very stupid, anti-American liberal.", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/15",
+#   "text": "You could see the ‘corruption’ pouring out of Hillary’s pores, when Chris Wallace asked her questions on the Clinton Foundation.", 
+#   "priority": "high"
+# }
+
+# { 
+#   "client_id": "reddit", 
+#   "return_url": "localhost/item/16",
+#   "text": "Kill yourself communist", 
+#   "priority": "high"
+# }

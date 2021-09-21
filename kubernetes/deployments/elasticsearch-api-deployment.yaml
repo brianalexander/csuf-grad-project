@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticsearch-api-deployment
+  labels:
+    app: elasticsearch-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch-api
+  template:
+    metadata:
+      labels:
+        app: elasticsearch-api
+    spec:
+      containers:
+        - name: elasticsearch-api
+          image: brianalexander/elasticsearch-api
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          command: ["waitress-serve"]
+          args: ["--call", "elasticsearch_api:create_app"]

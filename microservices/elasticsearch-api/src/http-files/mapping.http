@@ -1,0 +1,13 @@
+PUT http://localhost:9200/item/
+content-type: application/json
+
+{
+  "mappings": {
+    "properties": {
+      "embedding": {
+        "type": "dense_vector",
+        "dims": 768
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: item-provider-deployment
+  labels:
+    app: item-provider
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: item-provider
+  template:
+    metadata:
+      labels:
+        app: item-provider
+    spec:
+      volumes:
+        - name: redis-volume
+          secret:
+            secretName: redis-secret
+      containers:
+        - name: item-provider
+          image: brianalexander/item-provider
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          command: ["python"]
+          args: ["./item_provider.py"]
+          volumeMounts:
+            - name: redis-volume
+              mountPath: /etc/secrets/redis
